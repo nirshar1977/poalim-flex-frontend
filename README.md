@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+# Poalim Flex - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
+Poalim Flex is a flexible mortgage repayment system that provides an intuitive interface for managing mortgage payments, offering dynamic repayment options and financial insights.
 
-## Available Scripts
+## Purpose
+The frontend application delivers a comprehensive user experience for:
+- User Authentication
+- Mortgage Management
+- Flexible Payment Reduction
+- Financial Health Tracking
+- Personalized Notifications
 
-In the project directory, you can run:
+## Tech Stack
+- **Frontend Framework**: React
+- **UI Library**: Material-UI
+- **State Management**: Context API
+- **Routing**: React Router
+- **Charting**: Recharts
 
-### `npm start`
+## Key Features
+- Interactive Dashboard
+- Flex Payment Calculator
+- Financial Stress Detection Visualization
+- Personalized Notifications
+- Responsive Design with RTL Support
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## System Components
+- User Authentication
+- Mortgage Overview
+- Flex Reduction Calculator
+- Notification Center
+- Profile Management
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Prerequisites
+- Node.js (v14 or later)
+- npm or Yarn
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+```bash
+git clone https://github.com/nirshar1977/poalim-flex-frontend.git
+```
 
-### `npm run build`
+2. Navigate to the project directory:
+```bash
+cd poalim-flex-frontend
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install dependencies:
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Set up environment variables:
+Create a `.env` file with the following variables:
+- `REACT_APP_API_URL`: Backend API endpoint
+- `REACT_APP_ENVIRONMENT`: Development or production
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Running the Application
 
-### `npm run eject`
+### Development Mode
+```bash
+npm start
+```
+Runs the app on [http://localhost:3000](http://localhost:3000)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Production Build
+```bash
+npm run build
+```
+Builds the app for production in the `build` folder
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
+```
+poalim-flex-frontend/
+│
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Header.js
+│   │   ├── Footer.js
+│   │   ├── MortgageCard.js
+│   │   └── ...
+│   ├── pages/
+│   │   ├── Dashboard.js
+│   │   ├── Login.js
+│   │   ├── MortgageDetails.js
+│   │   └── ...
+│   ├── context/
+│   │   ├── AuthContext.js
+│   │   └── NotificationContext.js
+│   ├── utils/
+│   │   └── api.js
+│   ├── App.js
+│   └── index.js
+└── package.json
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Key Components
+- `AuthContext`: Manages authentication state
+- `NotificationContext`: Handles notification management
+- `api.js`: Axios configuration for backend communication
+- Routing with protected routes
+- Responsive design with Material-UI
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contributing
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Learn More
+## Internationalization
+- Built with RTL support for Hebrew
+- Easily adaptable to other languages
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Limitations and Future Improvements
+- Enhance accessibility features
+- Add more comprehensive financial predictions
+- Improve mobile responsiveness
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
+[Specify your license]
 
-### Code Splitting
+## Contact
+Your Name - your.email@example.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Link: [https://github.com/nirshar1977/poalim-flex-frontend](https://github.com/nirshar1977/poalim-flex-frontend)
