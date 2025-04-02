@@ -7,6 +7,9 @@ import { prefixer } from 'stylis';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 
+// Import the new Poalim theme
+import poalimTheme from './theme/poalimTheme';
+
 // Components
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -29,47 +32,6 @@ const cacheRtl = createCache({
   stylisPlugins: [prefixer, rtlPlugin],
 });
 
-// Theme configuration
-const theme = createTheme({
-  direction: 'rtl',
-  palette: {
-    primary: {
-      main: '#0055a4',
-      light: '#3377b7',
-      dark: '#003c73',
-    },
-    secondary: {
-      main: '#ff9e1b',
-      light: '#ffb14e',
-      dark: '#cc7e15',
-    },
-    background: {
-      default: '#f5f5f5',
-    },
-  },
-  typography: {
-    fontFamily: 'Rubik, Arial, sans-serif',
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: 8,
-          fontWeight: 600,
-        },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          borderRadius: 16,
-          boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
-        },
-      },
-    },
-  },
-});
-
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -80,21 +42,26 @@ function App() {
 
   if (loading) {
     return (
-      <Box sx={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: '100vh', 
-        bgcolor: '#0055a4' 
-      }}>
-        <CircularProgress size={80} sx={{ color: 'white' }} />
-      </Box>
+      <CacheProvider value={cacheRtl}>
+        <ThemeProvider theme={poalimTheme}>
+          <CssBaseline />
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            height: '100vh', 
+            bgcolor: 'primary.main' 
+          }}>
+            <CircularProgress size={80} sx={{ color: 'white' }} />
+          </Box>
+        </ThemeProvider>
+      </CacheProvider>
     );
   }
 
   return (
     <CacheProvider value={cacheRtl}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={poalimTheme}>
         <CssBaseline />
         <AuthProvider>
           <NotificationProvider>
