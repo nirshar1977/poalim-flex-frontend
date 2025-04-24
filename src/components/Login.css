@@ -1,25 +1,34 @@
-/* src/components/Login.css */
-.login-container {
+/* src/components/Login.css - Hapoalim-inspired design */
+:root {
+    --hapoalim-red: #D0021B;  /* Bank Hapoalim's primary brand color */
+    --hapoalim-light-red: #FFE6E6;
+    --hapoalim-gray: #F5F5F5;
+    --hapoalim-text-dark: #333333;
+    --hapoalim-border-light: #E0E0E0;
+  }
+  
+  .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 70vh;
-    padding: 20px;
+    width: 100%;
   }
   
   .login-form {
-    background-color: #fff;
+    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 100%;
     max-width: 400px;
+    text-align: right;
   }
   
   .login-form h2 {
     text-align: center;
     margin-bottom: 24px;
-    color: #333;
+    color: var(--hapoalim-red);
+    font-weight: 500;
   }
   
   .form-group {
@@ -30,77 +39,95 @@
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #555;
+    color: var(--hapoalim-text-dark);
   }
   
   .form-group input {
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--hapoalim-border-light);
     border-radius: 4px;
     font-size: 16px;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: white;
+    direction: ltr;
+    text-align: left;
   }
   
   .form-group input:focus {
-    border-color: #0066cc;
+    border-color: var(--hapoalim-red);
     outline: none;
+    box-shadow: 0 0 0 2px rgba(208, 2, 27, 0.2);
   }
   
   .login-button {
     width: 100%;
     padding: 12px;
-    background-color: #0066cc;
+    background-color: var(--hapoalim-red);
     color: white;
     border: none;
     border-radius: 4px;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.1s;
   }
   
   .login-button:hover {
-    background-color: #0055aa;
+    background-color: #A0011A;
+  }
+  
+  .login-button:active {
+    transform: scale(0.99);
   }
   
   .login-button:disabled {
-    background-color: #99c2ff;
+    background-color: #FFACB3;
     cursor: not-allowed;
   }
   
   .error-message {
-    color: #d32f2f;
+    color: var(--hapoalim-red);
+    background-color: var(--hapoalim-light-red);
+    border: 1px solid var(--hapoalim-red);
     margin-bottom: 20px;
     padding: 10px;
-    background-color: #ffebee;
     border-radius: 4px;
     text-align: center;
   }
   
+  .form-group small {
+    display: block;
+    margin-top: 8px;
+    color: #666;
+    font-size: 0.8rem;
+  }
+  
   .user-profile {
-    background-color: #fff;
+    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 100%;
     max-width: 400px;
+    text-align: right;
   }
   
   .user-profile h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: var(--hapoalim-red);
+    font-weight: 500;
   }
   
   .user-profile p {
     margin-bottom: 10px;
-    color: #555;
+    color: var(--hapoalim-text-dark);
   }
   
   .logout-button {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #f44336;
+    background-color: var(--hapoalim-red);
     color: white;
     border: none;
     border-radius: 4px;
@@ -110,5 +137,5 @@
   }
   
   .logout-button:hover {
-    background-color: #d32f2f;
+    background-color: #A0011A;
   }

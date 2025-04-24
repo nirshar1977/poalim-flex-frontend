@@ -1,6 +1,6 @@
 // src/components/Registration.js
 import React, { useState } from 'react';
-import './Login.css'; // Reuse the same styles
+import './Login.css';
 
 function Registration() {
   const [formData, setFormData] = useState({
@@ -37,27 +37,19 @@ function Registration() {
 
     // Validate passwords match
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setError('הסיסמאות אינן תואמות');
       setLoading(false);
       return;
     }
 
     // Validate password strength
     if (!validatePassword(formData.password)) {
-      setError('Password must contain at least one digit, one lowercase letter, one uppercase letter, and one special character (@#$%^&+=)');
+      setError('הסיסמה צריכה להכיל לפחות ספרה אחת, אות גדולה, אות קטנה ותו מיוחד');
       setLoading(false);
       return;
     }
 
     try {
-      console.log('Attempting to register user:', { 
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        password: formData.password,
-        phoneNumber: formData.phoneNumber
-      });
-      
       const response = await fetch('http://localhost:8080/api/user/register', {
         method: 'POST',
         headers: {
@@ -70,35 +62,24 @@ function Registration() {
           password: formData.password,
           phoneNumber: formData.phoneNumber
         }),
-        credentials: 'include' // For development only
+        credentials: 'include'
       });
       
-      console.log('Registration response status:', response.status);
-      
       if (response.status === 409) {
-        throw new Error('Email already exists');
+        throw new Error('דואר אלקטרוני זה כבר קיים במערכת');
       }
 
       if (!response.ok) {
-        throw new Error(`Registration failed: ${response.status}`);
+        throw new Error(`הרשמה נכשלה: ${response.status}`);
       }
       
       const userData = await response.json();
-      console.log('Registration successful:', userData);
-      setSuccess('Registration successful! You can now login with your credentials.');
+      console.log('הרשמה הצליחה:', userData);
+      setSuccess('ההרשמה הושלמה בהצלחה! ניתן להתחבר עם הפרטים שלך.');
       
-      // Reset form (but leave the pre-filled values for testing)
-      // setFormData({
-      //   firstName: '',
-      //   lastName: '',
-      //   email: '',
-      //   password: '',
-      //   confirmPassword: '',
-      //   phoneNumber: ''
-      // });
     } catch (err) {
-      console.error('Registration error:', err);
-      setError(err.message || 'Registration failed. Please try again.');
+      console.error('שגיאת הרשמה:', err);
+      setError(err.message || 'ההרשמה נכשלה. אנא נסה שוב.');
     } finally {
       setLoading(false);
     }
@@ -107,13 +88,13 @@ function Registration() {
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
-        <h2>Register</h2>
+        <h2>הרשמה למערכת</h2>
         
         {error && <div className="error-message">{error}</div>}
         {success && <div className="success-message">{success}</div>}
         
         <div className="form-group">
-          <label htmlFor="firstName">First Name</label>
+          <label htmlFor="firstName">שם פרטי</label>
           <input
             type="text"
             id="firstName"
@@ -121,11 +102,12 @@ function Registration() {
             value={formData.firstName}
             onChange={handleChange}
             required
+            placeholder="הזן את שמך הפרטי"
           />
         </div>
         
         <div className="form-group">
-          <label htmlFor="lastName">Last Name</label>
+          <label htmlFor="lastName">שם משפחה</label>
           <input
             type="text"
             id="lastName"
@@ -133,11 +115,12 @@ function Registration() {
             value={formData.lastName}
             onChange={handleChange}
             required
+            placeholder="הזן את שם המשפחה שלך"
           />
         </div>
         
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">דואר אלקטרוני</label>
           <input
             type="email"
             id="email"
@@ -145,11 +128,12 @@ function Registration() {
             value={formData.email}
             onChange={handleChange}
             required
+            placeholder="הזן את כתובת הדואר האלקטרוני שלך"
           />
         </div>
         
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">סיסמה</label>
           <input
             type="password"
             id="password"
@@ -157,12 +141,13 @@ function Registration() {
             value={formData.password}
             onChange={handleChange}
             required
+            placeholder="הזן סיסמה"
           />
-          <small>Password must contain at least one digit, one lowercase letter, one uppercase letter, and one special character (@#$%^&+=)</small>
+          <small>הסיסמה צריכה להכיל לפחות ספרה אחת, אות גדולה, אות קטנה ותו מיוחד</small>
         </div>
         
         <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
+          <label htmlFor="confirmPassword">אישור סיסמה</label>
           <input
             type="password"
             id="confirmPassword"
@@ -170,11 +155,12 @@ function Registration() {
             value={formData.confirmPassword}
             onChange={handleChange}
             required
+            placeholder="אשר את הסיסמה"
           />
         </div>
         
         <div className="form-group">
-          <label htmlFor="phoneNumber">Phone Number</label>
+          <label htmlFor="phoneNumber">מספר טלפון</label>
           <input
             type="tel"
             id="phoneNumber"
@@ -182,11 +168,12 @@ function Registration() {
             value={formData.phoneNumber}
             onChange={handleChange}
             required
+            placeholder="הזן את מספר הטלפון שלך"
           />
         </div>
         
         <button type="submit" className="login-button" disabled={loading}>
-          {loading ? 'Registering...' : 'Register'}
+          {loading ? 'מבצע הרשמה...' : 'הירשם'}
         </button>
       </form>
     </div>

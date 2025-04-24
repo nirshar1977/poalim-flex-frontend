@@ -3,13 +3,23 @@
   text-align: center;
   min-height: 100vh;
   background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 500px; /* Adjust this value to match your desired width */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #d92121; /* Bank Hapoalim red */
   padding: 20px;
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .App-header h1 {
